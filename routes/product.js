@@ -23,6 +23,11 @@ router.get(`/:id`,async (req,res)=>{
     const product = await Product.findById(ID);
     res.status(200).json(product)
 })
+router.delete(`/delete/:id`,async (req,res)=>{
+    const ID = req.params.id;
+    const product = await Product.findByIdAndDelete(ID);
+    res.status(200).json("Product deleted successfully")
+})
 router.put('/editproduct',async (req,res)=>{
     const {title , description ,price,id}=req.body;
     const updateProduct =await Product.findByIdAndUpdate(id,{title,description,price});
