@@ -4,6 +4,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const cors = require('cors');
 const productRoute = require('./routes/product')
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
