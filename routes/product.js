@@ -7,7 +7,7 @@ const Product = require('../models/product')
 
 router.get('/',async (req,res)=>{
     const productData = await Product.find();
-    res.json(productData)
+    res.status(200).json(productData)
 })
 router.post('/newproduct',async (req,res)=>{
     const {title , description ,price}=req.body;
@@ -16,12 +16,17 @@ router.post('/newproduct',async (req,res)=>{
         description,
         price
     })
-    res.json(productData)
+    res.status(200).json(productData)
 })
 router.get(`/:id`,async (req,res)=>{
     const ID = req.params.id;
     const product = await Product.findById(ID);
-    res.json(product)
+    res.status(200).json(product)
+})
+router.put('/editproduct',async (req,res)=>{
+    const {title , description ,price,id}=req.body;
+    const updateProduct =await Product.findByIdAndUpdate(id,{title,description,price});
+    res.status(200).json("Product update successfully")
 })
 
 
