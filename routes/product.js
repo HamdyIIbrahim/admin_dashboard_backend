@@ -33,6 +33,10 @@ router.put('/editproduct',async (req,res)=>{
     const updateProduct =await Product.findByIdAndUpdate(id,{title,description,price});
     res.status(200).json("Product update successfully")
 })
+router.put('/addimage',async (req,res)=>{
+    const {name,path} =req.body;
+    
+})
 
 
 module.exports=router;
