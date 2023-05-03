@@ -3,7 +3,8 @@ const app = express();
 require('dotenv').config();
 const mongoose = require('mongoose');
 const cors = require('cors');
-const productRoute = require('./routes/product')
+const productRoute = require('./routes/product');
+const categoryRoute = require('./routes/categories');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -15,5 +16,6 @@ mongoose.connect(`${process.env.MONGODB_URI}`).then(() => {
     console.log("can't connect");
 });
 
-app.use('/products',productRoute)
+app.use('/products',productRoute);
+app.use('/category',categoryRoute);
 app.listen(2000);
