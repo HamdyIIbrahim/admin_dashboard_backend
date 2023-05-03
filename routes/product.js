@@ -14,7 +14,8 @@ router.post('/newproduct',async (req,res)=>{
     const productData = await Product.create({
         title,
         description,
-        price
+        price,
+        images
     })
     res.status(200).json(productData)
 })
@@ -29,8 +30,8 @@ router.delete(`/delete/:id`,async (req,res)=>{
     res.status(200).json("Product deleted successfully")
 })
 router.put('/editproduct',async (req,res)=>{
-    const {title , description ,price,id}=req.body;
-    const updateProduct =await Product.findByIdAndUpdate(id,{title,description,price});
+    const {title , description ,price,images,id}=req.body;
+    const updateProduct =await Product.findByIdAndUpdate(id,{title,description,price,images});
     res.status(200).json("Product update successfully")
 })
 router.put('/addimage',async (req,res)=>{
