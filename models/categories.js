@@ -6,8 +6,9 @@ const CategoriesSchema= new mongoose.Schema({
         type:String,
         required:true
     },
-    parentCategory:{
-        type: mongoose.Types.ObjectId,
+    parent:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"Categories"
     }
 })
 
