@@ -7,8 +7,7 @@ const CategoriesSchema= new mongoose.Schema({
         required:true
     },
     parent:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref:"Categories"
+        type: string
     }
 })
 
