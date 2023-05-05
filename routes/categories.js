@@ -3,8 +3,8 @@ const router = express.Router();
 const Categories = require("../models/categories");
 
 router.post("/newcategory", (req, res) => {
-  const { name } = req.body;
-  Categories.create({ name })
+  const { name, parentCategory } = req.body;
+  Categories.create({ name , parentCategory })
     .then(() => {
       res.status(200).json("category created successfully");
     })
