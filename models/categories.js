@@ -6,8 +6,8 @@ const CategoriesSchema= new mongoose.Schema({
         type:String,
         required:true
     },
-    parent:{
-        type: string
+    parentCategory:{
+        type: String
     }
 })
 
