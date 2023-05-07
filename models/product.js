@@ -11,7 +11,10 @@ const ProductSchema= new mongoose.Schema({
         type:Number,
         required:true
     },
-    images:[{type:String}]
+    images:[{type:String}],
+    parentCategory:{
+        type:String
+    }
 })
 
 ProductSchema.plugin(uniqueValidator);

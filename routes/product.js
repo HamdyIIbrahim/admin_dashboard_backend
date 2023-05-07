@@ -10,12 +10,13 @@ router.get('/',async (req,res)=>{
     res.status(200).json(productData)
 })
 router.post('/newproduct',async (req,res)=>{
-    const {title , description ,price,images}=req.body;
+    const {title , description ,price,images,parentCategory}=req.body;
     const productData = await Product.create({
         title,
         description,
         price,
-        images
+        images,
+        parentCategory
     })
     res.status(200).json(productData)
 })
@@ -30,8 +31,8 @@ router.delete(`/delete/:id`,async (req,res)=>{
     res.status(200).json("Product deleted successfully")
 })
 router.put('/editproduct',async (req,res)=>{
-    const {title , description ,price,images,id}=req.body;
-    const updateProduct =await Product.findByIdAndUpdate(id,{title,description,price,images});
+    const {title , description ,price,images,id,parentCategory}=req.body;
+    const updateProduct =await Product.findByIdAndUpdate(id,{title,description,price,images,parentCategory});
     res.status(200).json("Product update successfully")
 })
 router.put('/addimage',async (req,res)=>{

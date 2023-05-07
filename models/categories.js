@@ -9,6 +9,10 @@ const CategoriesSchema= new mongoose.Schema({
     parentCategory:{
         type: String
     }
+    // parentCategory:{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref:'Categories'
+    // },
 })
 
 CategoriesSchema.plugin(uniqueValidator);
