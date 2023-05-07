@@ -10,7 +10,7 @@ router.get('/',async (req,res)=>{
     res.status(200).json(productData)
 })
 router.post('/newproduct',async (req,res)=>{
-    const {title , description ,price}=req.body;
+    const {title , description ,price,images}=req.body;
     const productData = await Product.create({
         title,
         description,
